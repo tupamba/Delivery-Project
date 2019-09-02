@@ -1,0 +1,14 @@
+.progress-delivery {
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
+
+.progress-delivery-state-active {
+    background: #e9ecef;
+    color: black;
+}
+
+.progress-delivery-state-unactive {
+    background: #007bff;
+    color: white;
+}

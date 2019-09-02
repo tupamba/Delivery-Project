@@ -1,0 +1,28 @@
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { WizardbarService } from '../../service/wizardbar/wizardbar.service';
+
+@Component({
+  selector: 'app-wizardbar',
+  templateUrl: './wizardbar.component.html',
+  styleUrls: ['./wizardbar.component.css']
+})
+export class WizardbarComponent implements OnInit, OnDestroy {
+
+  @Input() stepList:string[];
+  @Input() currentStep:number;
+  barWidth:string = "100%";
+  private suscribe:Subscription;
+  constructor(private service:WizardbarService) { }
+  ngOnDestroy(): void {
+    this.suscribe.unsubscribe();
+  }
+  ngOnInit() {
+    this.barWidth = (100 / this.stepList.length).toString() + "%";
+    this.suscribe =  this.service.getCurrentStep().subscribe((step) => {
+      this.currentStep = step;
+    });
+  }
+
+
+}

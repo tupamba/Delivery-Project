@@ -1,0 +1,10 @@
+<form ngNativeValidate [formGroup]="searchForm">
+    <div class="row justify-content-star">
+        <div class="col-4" *ngFor="let data of searchData;let i=index">
+            <div class="form-group">
+                <label for="{{data.key}}">{{data.description}}</label>
+                <input type="text" class="form-control" placeholder="{{data.placeHolder}}" formControlName="{{data.key}}" [autofocus]='i == 0'>
+            </div>
+        </div>
+    </div>
+</form>

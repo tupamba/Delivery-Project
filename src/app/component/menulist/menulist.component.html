@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-4 col-sm-12">
+        <ul class="list-group">
+            <li (click)="selectItem(item)" class="list-group-item" [class.active]="(itemactive == '' && i == 0) || (item.name == itemactive)" *ngFor="let item of menuList$ | async; let i = index">{{item.name}}</li>
+        </ul>
+    </div>
+    <div class="col-md-8 col-sm-12">
+        <table class="table table-striped">
+            <tbody>
+                <tr class="row" *ngFor="let item of itemList">
+                    <td class="col-5">{{item.description}}</td>
+                    <td class="col-5">$ {{item.price}}</td>
+                    <td class="col-1"><a placement="top" data-toggle="tooltip" title="tooltip"><i class="fa fa-search" aria-hidden="true"></i></a></td>
+                    <td class="col-1"><a (click)="addCart.emit(item)"><i class="fa fa-cart-plus text-success" aria-hidden="true"></i></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

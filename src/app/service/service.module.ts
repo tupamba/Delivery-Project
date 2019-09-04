@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WizardbarService } from './wizardbar/wizardbar.service';
+import { WizardService } from './wizard/wizard.service';
 import { HttpDataService } from './http/http-data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpmoqService } from './http/httpmoq.service';
+import { ModalService } from './modal/modal.service';
 
 @NgModule({
   declarations: [
@@ -17,8 +18,9 @@ import { HttpmoqService } from './http/httpmoq.service';
     useClass: HttpmoqService,
     multi: true
   },
-    WizardbarService,
-    HttpDataService
+    WizardService,
+    HttpDataService,
+    ModalService
   ]
 })
 export class ServiceModule { }

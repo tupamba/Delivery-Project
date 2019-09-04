@@ -1,3 +1,3 @@
 <div class="progress-delivery row">
-    <span *ngFor="let item of stepList; let i=index" [style.width]="barWidth" [class.progress-delivery-state-active]="i == currentStep" [class.progress-delivery-state-unactive]="i != currentStep">{{item}}</span>
+    <span *ngFor="let item of stepList; let i=index" [style.width]="barWidth" class="pl-3" [class.progress-delivery-state-active]="i == currentStep" [class.progress-delivery-state-unactive]="i != currentStep">{{item}}</span>
 </div>

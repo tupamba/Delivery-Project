@@ -16,7 +16,7 @@ describe('HttpserviceService', () => {
   it('get deliveries', () => {
     service.getDeliveries().subscribe(res =>
       {
-        expect(res.status).toBe(200);
+        expect(res).toBeDefined();
       });
   });
 });  

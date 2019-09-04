@@ -1,18 +1,19 @@
-<div class="modal face">
+<div class="backdrop" [ngStyle]="{'display':modalDisplay | async}"></div>
+<div class="modal face" [ngStyle]="{'display':modalDisplay | async}">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.modal(false)">
             <span aria-hidden="true">&times;</span>
           </button>
             </div>
             <div class="modal-body">
-                ...
+                {{messagge}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button (click)="modal.modal(false)" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button (click)="modal.modal(false)" type="button" class="btn btn-primary">Continuar</button>
             </div>
         </div>
     </div>

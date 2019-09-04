@@ -1,0 +1,9 @@
+<div class="m-4 bg-light p-3">
+    <h3>Filtros:</h3>
+    <app-filter [searchData]="filterQuestions" (filterData)="filterList($event)"></app-filter>
+</div>
+<div class="m-4">
+    <h3>Deliveries:</h3>
+    <app-columnlist [list$]="data$" [column]="4" (selectData)="selectItem($event)"></app-columnlist>
+</div>
+<router-outlet></router-outlet>

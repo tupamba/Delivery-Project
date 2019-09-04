@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card text-wrap">
+    <h5 class="card-title bg-primary text-white m-0">{{item.title}}</h5>
     <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
-        <p class="card-text" *ngFor="let data of item.items">{{data}}</p>
+        <p class="card-text mb-0" *ngFor="let data of item.items">{{data}}</p>
         <a [href]="" (click)="selectData.emit(item)" class="card-link">{{item.actionText}}</a>
     </div>
 </div>

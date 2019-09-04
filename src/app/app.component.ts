@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalService } from './service/modal/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'deliveryPro';
+  constructor(public modal:ModalService)
+  {}
 }

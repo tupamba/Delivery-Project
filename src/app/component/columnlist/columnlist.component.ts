@@ -18,6 +18,6 @@ export class ColumnlistComponent implements OnInit {
   ngOnInit() {
     if(this.column > 6 || this.column == 0)
       this.column = 6;
-    this.colClass = "col-" + 12 / this.column;
+    this.colClass = "col-md-" + 12 / this.column + " col-sm-12"; 
   }
 }

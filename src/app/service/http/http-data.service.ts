@@ -9,6 +9,7 @@ import { map } from 'rxjs/internal/operators/map';
 import { DeliveryDto } from '../../data-object/delivery-dto';
 import { MenuDto } from '../../data-object/menu-dto';
 import { Logger } from '../../global/logger';
+import { CartDto } from '../../data-object/cart.dto';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,20 +18,28 @@ export class HttpDataService {
   constructor(private http: HttpClient) { }
   getDeliveries(): Observable<DeliveryDto[]> {
         return this.http.get<DeliveryDto[]>(
-        GlobalConfig.urlDelivery + "getDelivery", { observe: 'response' }).pipe
+        GlobalConfig.urlDelivery , { observe: 'response' }).pipe
         (
           timeout(30000),
           map(res => 
           {
             if(res.status == 200)
-              return res.body
+              return res.body.sort((a,b) =>
+              {
+                if(a.name > b.name) 
+                  return 1;
+                 else if(a.name < b.name) 
+                  return -1;
+                 else 
+                  return 0;
+              });
             else
             return null;
           }));
     }
-    getMenu(menutitle:string): Observable<MenuDto> {
+    getMenu(id:number): Observable<MenuDto> {
       return this.http.get<MenuDto>(
-      GlobalConfig.urlDelivery + "getMenu/" + menutitle, { observe: 'response' }).pipe
+      GlobalConfig.urlDelivery + "getMenu?id=" + id, { observe: 'response' }).pipe
       (
         timeout(30000),
         map(res => 
@@ -42,7 +51,23 @@ export class HttpDataService {
           else
           return null;
         }));
-  }
+    }
+    confirmDelivery(data:CartDto)
+    {
+      return this.http.post<MenuDto>(
+        GlobalConfig.urlDelivery + "confirmDelivery",data, { observe: 'response' }).pipe
+        (
+          timeout(30000),
+          map(res => 
+          {
+            if(res.status == 200)
+            {
+              return res.body
+            }
+            else
+            return null;
+          }));
+    }
   executepost(data: any, service: string, url: string): Observable<HttpResponse<any>> {
     let _url = "";//this.getUrlService(service, url);
     let head: HttpHeaders = new HttpHeaders();

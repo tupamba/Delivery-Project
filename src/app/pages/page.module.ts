@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './main/main.component';
+import { ListDeliveriesComponent } from './list-deliveries/list-deliveries.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { PAGE_ROUTES } from './page.routing';
-import { StepOneComponent } from './step-one/step-one.component';
+import { TakeOrderComponent } from './take-order/take-order.component';
 import { ComponentModule } from '../component/component.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    MainComponent,
-    StepOneComponent
+    ListDeliveriesComponent,
+    TakeOrderComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     ComponentModule,
+    SharedModule,
     PAGE_ROUTES
   ],
   exports:[
-    MainComponent
+    ListDeliveriesComponent
   ]
 })
 export class PageModule { }

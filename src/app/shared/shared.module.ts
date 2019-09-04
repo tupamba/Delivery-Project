@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { WizardbarComponent } from './wizardbar/wizardbar.component';
 import { ModalComponent } from './modal/modal.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     WizardbarComponent,
-    ModalComponent
+    ModalComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule
@@ -16,7 +18,8 @@ import { ModalComponent } from './modal/modal.component';
   exports:[
     HeaderComponent,
     WizardbarComponent,
-    ModalComponent
+    ModalComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }

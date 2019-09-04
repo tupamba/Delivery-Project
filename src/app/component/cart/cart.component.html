@@ -11,18 +11,20 @@
         <tbody>
             <tr class="row" *ngFor="let item of cartList$ | async">
                 <td class="col-5">
-                    <a (click)="removeCart.emit(item)" placement="top" data-toggle="tooltip" title="tooltip">
-                        <i class="fa fa-minus-circle text-danger" aria-hidden="true"></i>
+                    <a class="btn btn-danger" (click)="removeCart.emit(item)" placement="top" data-toggle="tooltip" title="tooltip">
+                        <i class="fa fa-times" aria-hidden="true"></i>
                     </a> {{item.product.description}}</td>
-                <td class="col-2"><input type="number" [value]="item.count" (click)="item.count = $event.target.value;udateTotal(item)" required></td>
-                <td class="col-3">$ {{item.product.price}}</td>
-                <td class="col-2">{{item.product.price * item.count}}</td>
+                <td class="col-2">
+                    <input type="number" [value]="item.count" (click)="item.count = $event.target.value;udateTotal(item)" min="1" max="100" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                        required></td>
+                <td class=" col-3 ">$ {{item.product.price | number : '1.2-2'}}</td>
+                <td class="col-2 ">$ {{item.product.price * item.count | number : '1.2-2'}}</td>
             </tr>
         </tbody>
         <tfoot>
-            <tr class="row">
-                <td class="col-10"></td>
-                <td class="col-2">$ {{total}}</td>
+            <tr class="row ">
+                <td class="col-10 "></td>
+                <td class="col-2 ">$ {{total | number : '1.2-2'}}</td>
             </tr>
         </tfoot>
     </table>

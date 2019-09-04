@@ -23,7 +23,7 @@ export class FilterComponent implements OnInit {
     });
     this.searchForm = new FormGroup(group);
     this.searchForm .valueChanges.pipe(
-      debounceTime(1000)
+      debounceTime(300)
     ).subscribe( 
       result => 
       {

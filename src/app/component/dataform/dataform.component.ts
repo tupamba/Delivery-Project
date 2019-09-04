@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dataform',
@@ -7,13 +7,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./dataform.component.css']
 })
 export class DataformComponent implements OnInit {
-  dataForm: FormGroup;
+  @Input() dataForm: FormGroup;
   constructor() { }
 
   ngOnInit() {
-    this.dataForm = new FormGroup({
-      name : new FormControl(null)
-    });
   }
 
 }

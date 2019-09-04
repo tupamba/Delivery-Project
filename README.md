@@ -3,6 +3,11 @@ Aplicacion cliente.
 Pasos para ejecutar:
     npm install
     ng serve
+Config (.\app\global\global-config.ts)
+    urlDelivery - url del server;
+    httpServiceMoq - habilitar mock de datos.
+Mocks (.\app\service\http\httpmoq.service.ts)
+    Se implementa HttpInterceptor para agregar mock al aplicativo cliente, de esta forma se puede probar sin server.
 
 # angular-node-express-api
 Aplicacoin servidor.

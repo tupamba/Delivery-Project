@@ -16,6 +16,6 @@ Pasos para ejecutar:
 El aplicativo servidor (angular-node-express-api) se implemento a modo rebotero nada mas.
 
 # Autor
-Pablo Silva - 091934321
+Pablo Silva
 
 
